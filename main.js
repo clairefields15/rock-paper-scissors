@@ -4,31 +4,40 @@ var chooseFighterView = document.getElementById('chooseFighterView');
 var homeView = document.getElementById('homeView');
 var changeGameButton = document.getElementById('changeGame');
 var classicFighters = document.getElementById('classicFighters');
-var elementalFighters = document.getElementById('elementalFighters')
+var elementalFighters = document.getElementById('elementalFighters');
+var winnerView = document.getElementById('winnerView');
+var winnerContainer = document.getElementById('whoWonContainer')
 
 //EVENT LISTENERS
 buttonContainer.addEventListener('click', function() {
   selectGame(event)
 });
-
-changeGameButton.addEventListener('click', goHome)
+changeGameButton.addEventListener('click', goHome);
+//need something to fire showWinnerView, probably within the game class?
 
 
 //EVENT HANDLERS AND FUNCTIONS
+function showElement(element) {
+  element.classList.remove('hidden');
+};
+
+function hideElement(element) {
+  element.classList.add('hidden');
+};
+
 function selectGame() {
   if(event.target.id === 'classicGameButton') {
-    showElement(chooseFighterView)
-    showElement(classicFighters)
-    hideElement(homeView)
-    showElement(changeGameButton)
-
+    showElement(chooseFighterView);
+    showElement(classicFighters);
+    hideElement(homeView);
+    showElement(changeGameButton);
   } else {
-    showElement(chooseFighterView)
-    showElement(elementalFighters)
-    hideElement(homeView)
-    showElement(changeGameButton)
+    showElement(chooseFighterView);
+    showElement(elementalFighters);
+    hideElement(homeView);
+    showElement(changeGameButton);
   }
-}
+};
 
 function goHome() {
   hideElement(chooseFighterView);
@@ -36,12 +45,24 @@ function goHome() {
   hideElement(classicFighters);
   hideElement(changeGameButton);
   showElement(homeView);
+};
+
+function showWinnerView() {
+  hideElement(chooseFighterView);
+  hideElement(elementalFighters);
+  hideElement(classicFighters);
+  showElement(winnerView);
+  render();
 }
 
-function showElement(element) {
-  element.classList.remove('hidden')
-}
-
-function hideElement(element) {
-  element.classList.add('hidden')
+function render() {
+  winnerContainer.innerHTML = '';
+  winnerContainer.innerHTML = `
+    <h2>Computer won!</h2>
+    <div class="matchupContainer">
+      <img src="./assets/paper.png" alt="Paper">
+      <img src="./assets/scissors.png" alt="scissors">
+    </div>
+    <p>Paper < Scissors</p>
+  `;
 }
