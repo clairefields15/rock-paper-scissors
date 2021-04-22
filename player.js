@@ -1,7 +1,7 @@
 class Player {
-  constructor() {
-    this.name = "Human";
-    this.token = "🤩"
+  constructor(name, token) {
+    this.name = name;
+    this.token = token;
     this.wins = 0;
   }
 
@@ -16,8 +16,12 @@ class Player {
   }
 
   takeTurn() {
-
+    //choose your fighter
+    //human chooses, computer is random selection
   }
 
 
-}
+};
+//
+// var human = new Player("Human", "🤩");
+// var computer = new Player("Computer", "🤖");
