@@ -8,6 +8,8 @@ var elementalFighters = document.getElementById('elementalFighters');
 var winnerView = document.getElementById('winnerView');
 var winnerContainer = document.getElementById('whoWonContainer')
 
+var game;
+
 //EVENT LISTENERS
 buttonContainer.addEventListener('click', function() {
   selectGame(event)
@@ -31,11 +33,13 @@ function selectGame() {
     showElement(classicFighters);
     hideElement(homeView);
     showElement(changeGameButton);
-  } else {
+    game = new Game('Classic');
+  } else if (event.target.id === 'elementalGameButton'){
     showElement(chooseFighterView);
     showElement(elementalFighters);
     hideElement(homeView);
     showElement(changeGameButton);
+    game = new Game('Elemental');
   }
 };
 
