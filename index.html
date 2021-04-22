@@ -10,7 +10,7 @@
     <header>
       <h1>Rock, Paper, Scissors!</h1>
       <nav>
-        <button>Change game?</button>
+        <button class="hidden" id="changeGame">Change game?</button>
       </nav>
     </header>
     <main>
@@ -18,17 +18,17 @@
         <p>Player: Human</p>
         <p>Wins: 0</p>
       </aside>
-      <section class="view-home">
+      <section class="view-home" id="homeView">
         <h2>Choose your game</h2>
         <div class="game-container">
-          <button class="classic">
+          <button class="classic" id="classicGameButton">
             <h3>Classic Game</h3>
             <h4>Rules:</h4>
             <p>Rock > Scissors</p>
             <p>Paper > Rock</p>
             <p>Scissors > Paper</p>
           </button>
-          <button class="elemental">
+          <button class="elemental" id="elementalGameButton">
             <h3>Elemental Game</h3>
             <h4>Rules:</h4>
             <p>Water > Earth</p>
@@ -40,9 +40,9 @@
           </button>
         </div>
       </section>
-      <section class="view-choose-your-fighter hidden">
+      <section class="view-choose-your-fighter hidden" id="chooseFighterView">
         <h2>Choose your fighter!</h2>
-        <section class="view-classic-fighters">
+        <section class="view-classic-fighters hidden" id="classicFighters">
           <input type="radio" id="rock" name="fighter">
           <label class="fighter" for="rock"><img src="./assets/rock.png" alt="Rock">Rock</label>
           <input type="radio" id="paper" name="fighter">
@@ -50,7 +50,7 @@
           <input type="radio" id="scissors" name="fighter">
           <label class="fighter" for="scissors"><img src="./assets/scissors.png" alt="Scissors">Scissors</label>
         </section>
-        <section class="view-elemental-fighters hidden">
+        <section class="view-elemental-fighters hidden" id="elementalFighters">
           <div class="water-container">
             <input type="radio" id="water" name="el-fighter">
             <label class="fighter" for="water"><img src="./assets/water.png" alt="Water">Water</label>
