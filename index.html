@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rock, Paper, Scissors!</h1>
+      <nav>
+        <button>Change game?</button>
+      </nav>
+    </header>
+    <main>
+      <aside class="left">
+        <p>Player: Human</p>
+        <p>Wins: 0</p>
+      </aside>
+      <aside class="right">
+        <p>Player: Computer</p>
+        <p>Wins: 0</p>
+      </aside>
+      <section class="view-home">
+        <h2>Choose your game</h2>
+        <section class="classic">
+          <input type="radio" id="classic" name="game">
+          <h3><label for="classic">Classic Game</label></h3>
+          <h4>Rules</h4>
+          <p>I love cheese, especially stilton cheese strings. Stinking bishop monterey jack halloumi cauliflower cheese cheese and wine manchego danish fontina red leicester.</p>
+        </section>
+        <section class="elemental">
+          <input type="radio" id="elemental" name="game">
+          <h3><label for="elemental">Elemental Game</label></h3>
+          <h4>Rules</h4>
+          <p>Cupcake ipsum dolor sit amet candy toffee cotton candy fruitcake. Caramels oat cake cookie danish croissant chocolate tart cake tart. Cupcake chupa chups lemon drops sesame snaps.</p>
+        </section>
+      </section>
+      <section class="view-choose-your-fighter hidden">
+        <h2>Choose your fighter!</h2>
+        <section class="view-classic-fighters hidden">
+          <input type="radio" id="rock" name="fighter">
+          <h3><label for="rock">Rock</label></h3>
+          <img src="./assets/rock.png" alt="Rock">
+          <input type="radio" id="paper" name="fighter">
+          <h3><label for="paper">Paper</label></h3>
+          <img src="./assets/paper.png" alt="Paper">
+          <input type="radio" id="scissors" name="fighter">
+          <h3><label for="scissors">Scissors</label></h3>
+          <img src="./assets/scissors.png" alt="Scissors">
+        </section>
+        <section class="view-elemental-fighters hidden">
+          <input type="radio" id="water" name="el-fighter">
+          <h3><label for="water">Water</label></h3>
+          <img src="./assets/water.png" alt="Water">
+          <input type="radio" id="earth" name="el-fighter">
+          <h3><label for="earth">Earth</label></h3>
+          <img src="./assets/earth.png" alt="Earth">
+          <input type="radio" id="wind" name="el-fighter">
+          <h3><label for="wind">Wind</label></h3>
+          <img src="./assets/wind.png" alt="Wind">
+          <input type="radio" id="fire" name="el-fighter">
+          <h3><label for="fire">Fire</label></h3>
+          <img src="./assets/fire.png" alt="Fire">
+        </section>
+      </section>
+      <section class="view-winner hidden">
+        <h2>Computer won!</h2>
+        <img src="./assets/paper.png" alt="Paper">
+        <img src="./assets/scissors.png" alt="scissors">
+      </section>
+    </main>
+  </body>
+  <script type="text/javascript" src="player.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</html>
