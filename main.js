@@ -44,6 +44,14 @@ function selectGame() {
   }
 };
 
+function startNewGame() {
+  if (game.gameType === 'Classic') {
+    showElement(classicFighters);
+  } else {
+    showElement(elementalFighters);
+  }
+};
+
 function showGamePage() {
   showElement(chooseFighterView);
   hideElement(homeView);

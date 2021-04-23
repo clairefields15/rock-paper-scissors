@@ -81,16 +81,10 @@ class Game {
   resetGameBoard() {
     showGamePage();
     hideElement(winnerView);
-    if (this.gameType === 'Classic') {
-      showElement(classicFighters);
-    } else {
-      showElement(elementalFighters);
-    }
+    startNewGame();
   }
 };
 
-// render wins on the DOM
-// start new game
 // save wins to localStorage
 
 // var game1 = new Game('Elemental');
