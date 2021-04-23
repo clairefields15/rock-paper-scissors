@@ -98,24 +98,23 @@ function showWinnerView() {
 
 function render(game) {
   winnerContainer.innerHTML = '';
-
   if(game.winner) {
     winnerContainer.innerHTML = `
     <h2>${game.winner} won!</h2>
     <div class="matchupContainer">
-    <img src="./assets/paper.png" alt="Paper">
-    <img src="./assets/scissors.png" alt="scissors">
+    <img src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
+    <img src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
     </div>
-    <p>Paper < Scissors</p>
+    <p>${game.playerOne.name} picked ${game.matchup.playerOne} and ${game.playerTwo.name} picked ${game.matchup.playerTwo}</p>
     `;
   }else {
     winnerContainer.innerHTML = `
     <h2>It's a draw!</h2>
     <div class="matchupContainer">
-    <img src="./assets/paper.png" alt="Paper">
-    <img src="./assets/scissors.png" alt="scissors">
+    <img src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
+    <img src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
     </div>
-    <p>Paper < Scissors</p>
+    <p>${game.playerOne.name} picked ${game.matchup.playerOne} and ${game.playerTwo.name} picked ${game.matchup.playerTwo}</p>
     `;
   }
 };
