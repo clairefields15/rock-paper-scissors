@@ -5,7 +5,6 @@ class Game {
     this.playerOne = new Player('Human', '🤩');
     this.playerTwo = new Player('Computer', '🤖');
     this.gameType = gameType;
-    this.humanTurn = true;
     this.fighters = [];
   }
 
@@ -13,51 +12,72 @@ class Game {
     if(this.gameType === 'Classic') {
       this.fighters = ['Rock', 'Paper', 'Scissors']
     } else if (this.gameType === 'Elemental') {
-      this.fighters = ['Water', 'Wind', 'Earth', 'Fire']
+      this.fighters = ['Water', 'Air', 'Earth', 'Fire']
     }
   }
 
   chooseFighters() {
-    var playerOneFighter = this.playerOne.takeTurn();
-    var playerTwoFighter = this.playerTwo.takeTurn();
-    var matchup = [];
-    matchup.push(playerOneFighter, playerTwoFighter)
+    var playerOneFighter = this.playerOne.takeTurn(this);
+    var playerTwoFighter = this.playerTwo.takeTurn(this);
+    var matchup = {playerOne: playerOneFighter, playerTwo: playerTwoFighter};
     return matchup
   }
 
   checkForWinner() {
     var matchup = this.chooseFighters();
-    console.log(matchup)
     if (this.gameType === 'Classic') {
-      //look at returned fighters from chooseFighters
-      //evaluate to see who won
-      //list allllll the rules here
+      console.log(matchup)
+      if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Scissors') {
+        console.log(`${this.playerOne.name} wins!`)
+      } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo ==='Rock') {
+        console.log(`${this.playerTwo.name} wins!`)
+      } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Rock') {
+        console.log(`${this.playerOne.name} wins!`)
+      } else if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Paper') {
+        console.log(`${this.playerTwo.name} wins!`)
+      } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo === 'Paper') {
+        console.log(`${this.playerOne.name} wins!`)
+      } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Scissors') {
+        console.log(`${this.playerTwo.name} wins!`)
+      } else {
+        console.log(`It's a draw!`)
+      }
     } else if (this.gameType === 'Elemental') {
-      //look at returned fighters from chooseFighters
-      //evaluate to see who won
-      //list allllll the rules here
+      console.log(matchup)
+      if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Earth'){
+        console.log(`${this.playerOne.name} wins!`)
+      } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Water') {
+        console.log(`${this.playerTwo.name} wins!`)
+      } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Fire'){
+        console.log(`${this.playerOne.name} wins!`)
+      } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Earth'){
+        console.log(`${this.playerTwo.name} wins!`)
+      } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Air') {
+        console.log(`${this.playerOne.name} wins!`)
+      } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Fire') {
+        console.log(`${this.playerTwo.name} wins!`)
+      } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Water') {
+        console.log(`${this.playerOne.name} wins!`)
+      } else if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Air') {
+        console.log(`${this.playerTwo.name} wins!`)
+      } else {
+        console.log(`It's a draw!`)
+      }
     }
   }
 
   resetGameBoard() {
-
+    //setInterval
   }
-
-    //a way to keep track of whose turn it is- isn't it always the human turn?
-    //a way to check the data for win conditions
-    //a way to detect when the game is a draw
-    //a setInterval to reset the gameboard
 };
 
-// Game starts (human turn)
-// human chooses fighter
-// computer randomly chooses fighter
-// Check for winner or draw
 // update the wins in the player class
 // save wins to localStorage
 // render wins on the DOM
 // start new game
 
-var game1 = new Game('Classic');
+var game1 = new Game('Elemental');
 game1.chooseGameType();
 game1.checkForWinner();
+
+module.exports = Game;
