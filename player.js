@@ -16,12 +16,12 @@ class Player {
   }
 
   takeTurn() {
+    console.log("it's human's turn")
     //choose your fighter
     //human chooses, computer is random selection
   }
 
 
 };
-//
-// var human = new Player("Human", "🤩");
-// var computer = new Player("Computer", "🤖");
+
+//module.exports = Player;

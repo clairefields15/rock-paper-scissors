@@ -1,8 +1,20 @@
+//var Player = require('./player.js');
+
 class Game {
   constructor(gameType) {
-    this.players = ["Human", "Computer"];
+    this.playerOne = new Player('Human', '🤩');
+    this.playerTwo = new Player('Computer', '🤖');
     this.gameType = gameType;
     this.humanTurn = true;
+    this.fighters = [];
+  }
+
+  chooseGameType() {
+    if(this.gameType === 'Classic') {
+      this.fighters = ['Rock', 'Paper', 'Scissors']
+    } else if (this.gameType === 'Elemental') {
+      this.fighters = ['Water', 'Wind', 'Earth', 'Fire']
+    }
   }
 
   checkForWinner() {
@@ -22,11 +34,9 @@ class Game {
 
 };
 
+//var game1 = new Game('Classic');
 
-// on pageload create two players?
-  //human
-  //computer
-// select button creates the game class
+// select game button creates the game class, passes in the type
 // Game starts (human turn)
 // human chooses fighter
 // computer randomly chooses fighter

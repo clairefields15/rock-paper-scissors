@@ -34,12 +34,14 @@ function selectGame() {
     hideElement(homeView);
     showElement(changeGameButton);
     game = new Game('Classic');
+    game.chooseGameType();
   } else if (event.target.id === 'elementalGameButton'){
     showElement(chooseFighterView);
     showElement(elementalFighters);
     hideElement(homeView);
     showElement(changeGameButton);
     game = new Game('Elemental');
+    game.chooseGameType();
   }
 };
 
@@ -61,6 +63,9 @@ function showWinnerView() {
 
 function render() {
   winnerContainer.innerHTML = '';
+
+
+
   winnerContainer.innerHTML = `
     <h2>Computer won!</h2>
     <div class="matchupContainer">
