@@ -5,6 +5,7 @@ class Player {
     this.name = name;
     this.token = token;
     this.wins = 0;
+    this.fighter = undefined;
   }
 
   saveWinsToStorage() {
@@ -17,18 +18,16 @@ class Player {
     localStorage.getItem()
   }
 
-  takeTurn() {
+  takeTurn(game) {
     if (this.name === 'Human') {
-      const fighter = 'Rock';
+      this.fighter = 'Water';
       //look at which radio button is checked
       //return which one is checked
-      return fighter;
+      return this.fighter;
     } else if (this.name === 'Computer') {
-      const fighter = 'Paper'
-      return fighter
-      //var fighters = Game.fighters
-      //console.log(fighters[Math.floor(Math.random()*fighters.length)]);
-
+      var fighters = game.fighters
+      this.fighter = fighters[Math.floor(Math.random()*fighters.length)];
+      return this.fighter
     }
   }
 };
