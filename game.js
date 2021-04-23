@@ -82,6 +82,7 @@ class Game {
     showGamePage();
     hideElement(winnerView);
     startNewGame();
+    changeGameButton.disabled = false
   }
 };
 
