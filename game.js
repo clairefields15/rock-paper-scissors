@@ -28,16 +28,22 @@ class Game {
     if (this.gameType === 'Classic') {
       console.log(matchup)
       if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Scissors') {
+        this.playerOne.wins++
         console.log(`${this.playerOne.name} wins!`)
       } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo ==='Rock') {
+        this.playerTwo.wins++
         console.log(`${this.playerTwo.name} wins!`)
       } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Rock') {
+        this.playerOne.wins++
         console.log(`${this.playerOne.name} wins!`)
       } else if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Paper') {
+        this.playerTwo.wins++
         console.log(`${this.playerTwo.name} wins!`)
       } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo === 'Paper') {
+        this.playerOne.wins++
         console.log(`${this.playerOne.name} wins!`)
       } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Scissors') {
+        this.playerTwo.wins++
         console.log(`${this.playerTwo.name} wins!`)
       } else {
         console.log(`It's a draw!`)
@@ -45,20 +51,28 @@ class Game {
     } else if (this.gameType === 'Elemental') {
       console.log(matchup)
       if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Earth'){
+        this.playerOne.wins++
         console.log(`${this.playerOne.name} wins!`)
       } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Water') {
+        this.playerTwo.wins++
         console.log(`${this.playerTwo.name} wins!`)
       } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Fire'){
+        this.playerOne.wins++
         console.log(`${this.playerOne.name} wins!`)
       } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Earth'){
+        this.playerTwo.wins++
         console.log(`${this.playerTwo.name} wins!`)
       } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Air') {
+        this.playerOne.wins++
         console.log(`${this.playerOne.name} wins!`)
       } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Fire') {
+        this.playerTwo.wins++
         console.log(`${this.playerTwo.name} wins!`)
       } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Water') {
+        this.playerOne.wins++
         console.log(`${this.playerOne.name} wins!`)
       } else if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Air') {
+        this.playerTwo.wins++
         console.log(`${this.playerTwo.name} wins!`)
       } else {
         console.log(`It's a draw!`)
