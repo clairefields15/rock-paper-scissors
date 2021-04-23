@@ -6,17 +6,21 @@ var changeGameButton = document.getElementById('changeGame');
 var classicFighters = document.getElementById('classicFighters');
 var elementalFighters = document.getElementById('elementalFighters');
 var winnerView = document.getElementById('winnerView');
-var winnerContainer = document.getElementById('whoWonContainer')
+var winnerContainer = document.getElementById('whoWonContainer');
 
-var game;
+var game = new Game('Classic');
 
 //EVENT LISTENERS
 buttonContainer.addEventListener('click', function() {
   selectGame(event)
 });
 changeGameButton.addEventListener('click', goHome);
-//need something to fire showWinnerView, probably within the game class?
-
+classicFighters.addEventListener('click', function() {
+  selectFighter(event)
+});
+elementalFighters.addEventListener('click', function() {
+  selectFighter(event)
+});
 
 //EVENT HANDLERS AND FUNCTIONS
 function showElement(element) {
@@ -45,11 +49,43 @@ function selectGame() {
   }
 };
 
+function selectFighter() {
+ if(event.target.id === 'rock') {
+   game.playerOne.fighter = 'Rock'
+   game.checkForWinner();
+ }
+ if(event.target.id === 'paper') {
+   game.playerOne.fighter = 'Paper'
+   game.checkForWinner();
+ }
+ if(event.target.id === 'scissors') {
+   game.playerOne.fighter = 'Scissors'
+   game.checkForWinner();
+ }
+ if(event.target.id === 'water') {
+   game.playerOne.fighter = 'Water'
+   game.checkForWinner();
+ }
+ if(event.target.id === 'air') {
+   game.playerOne.fighter = 'Air'
+   game.checkForWinner();
+ }
+ if(event.target.id === 'fire') {
+   game.playerOne.fighter = 'Fire'
+   game.checkForWinner();
+ }
+ if(event.target.id === 'earth') {
+   game.playerOne.fighter = 'Earth'
+   game.checkForWinner();
+ }
+};
+
 function goHome() {
   hideElement(chooseFighterView);
   hideElement(elementalFighters);
   hideElement(classicFighters);
   hideElement(changeGameButton);
+  hideElement(winnerView);
   showElement(homeView);
 };
 
@@ -58,20 +94,28 @@ function showWinnerView() {
   hideElement(elementalFighters);
   hideElement(classicFighters);
   showElement(winnerView);
-  render();
-}
+};
 
-function render() {
+function render(game) {
   winnerContainer.innerHTML = '';
 
-
-
-  winnerContainer.innerHTML = `
-    <h2>Computer won!</h2>
+  if(game.winner) {
+    winnerContainer.innerHTML = `
+    <h2>${game.winner} won!</h2>
     <div class="matchupContainer">
-      <img src="./assets/paper.png" alt="Paper">
-      <img src="./assets/scissors.png" alt="scissors">
+    <img src="./assets/paper.png" alt="Paper">
+    <img src="./assets/scissors.png" alt="scissors">
     </div>
     <p>Paper < Scissors</p>
-  `;
-}
+    `;
+  }else {
+    winnerContainer.innerHTML = `
+    <h2>It's a draw!</h2>
+    <div class="matchupContainer">
+    <img src="./assets/paper.png" alt="Paper">
+    <img src="./assets/scissors.png" alt="scissors">
+    </div>
+    <p>Paper < Scissors</p>
+    `;
+  }
+};

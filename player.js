@@ -1,4 +1,4 @@
-var Game = require('./game.js');
+//var Game = require('./game.js');
 
 class Player {
   constructor(name, token) {
@@ -20,9 +20,6 @@ class Player {
 
   takeTurn(game) {
     if (this.name === 'Human') {
-      this.fighter = 'Water';
-      //look at which radio button is checked
-      //return which one is checked
       return this.fighter;
     } else if (this.name === 'Computer') {
       var fighters = game.fighters
@@ -32,4 +29,4 @@ class Player {
   }
 };
 
-module.exports = Player;
+//module.exports = Player;
