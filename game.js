@@ -79,8 +79,13 @@ class Game {
   };
 
   resetGameBoard() {
-    // setTimeout(this.chooseGameType, 3000)
-    // setTimeout(this.checkForWinner, 3000)
+    showGamePage();
+    hideElement(winnerView);
+    if (this.gameType === 'Classic') {
+      showElement(classicFighters);
+    } else {
+      showElement(elementalFighters);
+    }
   }
 };
 
