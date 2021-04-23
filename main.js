@@ -33,21 +33,23 @@ function hideElement(element) {
 
 function selectGame() {
   if(event.target.id === 'classicGameButton') {
-    showElement(chooseFighterView);
+    showGamePage();
     showElement(classicFighters);
-    hideElement(homeView);
-    showElement(changeGameButton);
     game = new Game('Classic');
     game.chooseGameType();
   } else if (event.target.id === 'elementalGameButton'){
-    showElement(chooseFighterView);
+    showGamePage();
     showElement(elementalFighters);
-    hideElement(homeView);
-    showElement(changeGameButton);
     game = new Game('Elemental');
     game.chooseGameType();
   }
 };
+
+function showGamePage() {
+  showElement(chooseFighterView);
+  hideElement(homeView);
+  showElement(changeGameButton);
+}
 
 function selectFighter() {
  if(event.target.id === 'rock') {
@@ -107,6 +109,7 @@ function render(game) {
     </div>
     <p>${game.playerOne.name} picked ${game.matchup.playerOne} and ${game.playerTwo.name} picked ${game.matchup.playerTwo}</p>
     `;
+    game.resetGameBoard()
   }else {
     winnerContainer.innerHTML = `
     <h2>It's a draw!</h2>
@@ -116,5 +119,6 @@ function render(game) {
     </div>
     <p>${game.playerOne.name} picked ${game.matchup.playerOne} and ${game.playerTwo.name} picked ${game.matchup.playerTwo}</p>
     `;
+    game.resetGameBoard()
   }
 };
