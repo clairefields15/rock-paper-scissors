@@ -1,4 +1,4 @@
-//var Player = require('./player.js');
+var Player = require('./player.js');
 
 class Game {
   constructor(gameType) {
@@ -17,26 +17,38 @@ class Game {
     }
   }
 
-  checkForWinner() {
+  chooseFighters() {
+    var playerOneFighter = this.playerOne.takeTurn();
+    var playerTwoFighter = this.playerTwo.takeTurn();
+    var matchup = [];
+    matchup.push(playerOneFighter, playerTwoFighter)
+    return matchup
+  }
 
+  checkForWinner() {
+    var matchup = this.chooseFighters();
+    console.log(matchup)
+    if (this.gameType === 'Classic') {
+      //look at returned fighters from chooseFighters
+      //evaluate to see who won
+      //list allllll the rules here
+    } else if (this.gameType === 'Elemental') {
+      //look at returned fighters from chooseFighters
+      //evaluate to see who won
+      //list allllll the rules here
+    }
   }
 
   resetGameBoard() {
 
   }
 
-    //a way to keep track of the selected game type
     //a way to keep track of whose turn it is- isn't it always the human turn?
     //a way to check the data for win conditions
     //a way to detect when the game is a draw
     //a setInterval to reset the gameboard
-
-
 };
 
-//var game1 = new Game('Classic');
-
-// select game button creates the game class, passes in the type
 // Game starts (human turn)
 // human chooses fighter
 // computer randomly chooses fighter
@@ -45,3 +57,7 @@ class Game {
 // save wins to localStorage
 // render wins on the DOM
 // start new game
+
+var game1 = new Game('Classic');
+game1.chooseGameType();
+game1.checkForWinner();

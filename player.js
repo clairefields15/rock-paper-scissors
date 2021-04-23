@@ -1,3 +1,5 @@
+var Game = require('./game.js');
+
 class Player {
   constructor(name, token) {
     this.name = name;
@@ -16,12 +18,19 @@ class Player {
   }
 
   takeTurn() {
-    console.log("it's human's turn")
-    //choose your fighter
-    //human chooses, computer is random selection
+    if (this.name === 'Human') {
+      const fighter = 'Rock';
+      //look at which radio button is checked
+      //return which one is checked
+      return fighter;
+    } else if (this.name === 'Computer') {
+      const fighter = 'Paper'
+      return fighter
+      //var fighters = Game.fighters
+      //console.log(fighters[Math.floor(Math.random()*fighters.length)]);
+
+    }
   }
-
-
 };
 
-//module.exports = Player;
+module.exports = Player;
