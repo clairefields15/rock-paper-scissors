@@ -25,70 +25,78 @@ class Game {
 
   checkForWinner() {
     var matchup = this.chooseFighters();
+    console.log(matchup)
     if (this.gameType === 'Classic') {
-      console.log(matchup)
-      if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Scissors') {
-        this.playerOne.wins++
-        console.log(`${this.playerOne.name} wins!`)
-      } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo ==='Rock') {
-        this.playerTwo.wins++
-        console.log(`${this.playerTwo.name} wins!`)
-      } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Rock') {
-        this.playerOne.wins++
-        console.log(`${this.playerOne.name} wins!`)
-      } else if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Paper') {
-        this.playerTwo.wins++
-        console.log(`${this.playerTwo.name} wins!`)
-      } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo === 'Paper') {
-        this.playerOne.wins++
-        console.log(`${this.playerOne.name} wins!`)
-      } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Scissors') {
-        this.playerTwo.wins++
-        console.log(`${this.playerTwo.name} wins!`)
-      } else {
-        console.log(`It's a draw!`)
-      }
+      this.checkClassicMatchups(matchup);
     } else if (this.gameType === 'Elemental') {
-      console.log(matchup)
-      if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Earth'){
-        this.playerOne.wins++
-        console.log(`${this.playerOne.name} wins!`)
-      } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Water') {
-        this.playerTwo.wins++
-        console.log(`${this.playerTwo.name} wins!`)
-      } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Fire'){
-        this.playerOne.wins++
-        console.log(`${this.playerOne.name} wins!`)
-      } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Earth'){
-        this.playerTwo.wins++
-        console.log(`${this.playerTwo.name} wins!`)
-      } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Air') {
-        this.playerOne.wins++
-        console.log(`${this.playerOne.name} wins!`)
-      } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Fire') {
-        this.playerTwo.wins++
-        console.log(`${this.playerTwo.name} wins!`)
-      } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Water') {
-        this.playerOne.wins++
-        console.log(`${this.playerOne.name} wins!`)
-      } else if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Air') {
-        this.playerTwo.wins++
-        console.log(`${this.playerTwo.name} wins!`)
-      } else {
-        console.log(`It's a draw!`)
-      }
+      this.checkElementalMatchups(matchup);
+    }
+    //this.resetGameBoard();
+  }
+
+  checkClassicMatchups(matchup) {
+    if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Scissors') {
+      this.playerOne.wins++
+      console.log(`${this.playerOne.name} wins!`)
+    } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo ==='Rock') {
+      this.playerTwo.wins++
+      console.log(`${this.playerTwo.name} wins!`)
+    } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Rock') {
+      this.playerOne.wins++
+      console.log(`${this.playerOne.name} wins!`)
+    } else if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Paper') {
+      this.playerTwo.wins++
+      console.log(`${this.playerTwo.name} wins!`)
+    } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo === 'Paper') {
+      this.playerOne.wins++
+      console.log(`${this.playerOne.name} wins!`)
+    } else if (matchup.playerOne === 'Paper' && matchup.playerTwo === 'Scissors') {
+      this.playerTwo.wins++
+      console.log(`${this.playerTwo.name} wins!`)
+    } else {
+      console.log(`It's a draw!`)
+    }
+  }
+
+  checkElementalMatchups(matchup) {
+    if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Earth'){
+      this.playerOne.wins++
+      console.log(`${this.playerOne.name} wins!`)
+    } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Water') {
+      this.playerTwo.wins++
+      console.log(`${this.playerTwo.name} wins!`)
+    } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Fire'){
+      this.playerOne.wins++
+      console.log(`${this.playerOne.name} wins!`)
+    } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Earth'){
+      this.playerTwo.wins++
+      console.log(`${this.playerTwo.name} wins!`)
+    } else if (matchup.playerOne === 'Fire' && matchup.playerTwo === 'Air') {
+      this.playerOne.wins++
+      console.log(`${this.playerOne.name} wins!`)
+    } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Fire') {
+      this.playerTwo.wins++
+      console.log(`${this.playerTwo.name} wins!`)
+    } else if (matchup.playerOne === 'Air' && matchup.playerTwo === 'Water') {
+      this.playerOne.wins++
+      console.log(`${this.playerOne.name} wins!`)
+    } else if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Air') {
+      this.playerTwo.wins++
+      console.log(`${this.playerTwo.name} wins!`)
+    } else {
+      console.log(`It's a draw!`)
     }
   }
 
   resetGameBoard() {
-    //setInterval
+    // setTimeout(this.chooseGameType, 3000)
+    // setTimeout(this.checkForWinner, 3000)
   }
 };
 
-// update the wins in the player class
-// save wins to localStorage
 // render wins on the DOM
 // start new game
+// save wins to localStorage
 
 var game1 = new Game('Elemental');
 game1.chooseGameType();
