@@ -1,5 +1,3 @@
-//var Player = require('./player.js');
-
 class Game {
   constructor(gameType) {
     this.playerOne = new Player('Human', 'human');
@@ -93,11 +91,3 @@ class Game {
     changeGameButton.disabled = false
   }
 };
-
-// save wins to localStorage
-
-// var game1 = new Game('Elemental');
-// game1.chooseGameType();
-// game1.checkForWinner();
-//
-// module.exports = Game;

@@ -1,5 +1,3 @@
-//var Game = require('./game.js');
-
 class Player {
   constructor(name, token) {
     this.name = name;
@@ -9,8 +7,16 @@ class Player {
   }
 
   saveWinsToStorage() {
-    localStorage.setItem('Human', JSON.stringify(game.playerOne.wins));
-    localStorage.setItem('Computer', JSON.stringify(game.playerTwo.wins));
+    localStorage.setItem(this.name, JSON.stringify(this.wins));
+  }
+
+  retrieveWinsFromStorage() {
+    var wins = localStorage.getItem(this.name);
+    var parsedWins = JSON.parse(wins);
+    if (!wins) {
+      return wins = 0;
+    }
+    return parsedWins
   }
 
   // retrieveWinsFromStorage() {
@@ -37,5 +43,3 @@ class Player {
     }
   }
 };
-
-//module.exports = Player;

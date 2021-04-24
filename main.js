@@ -24,8 +24,8 @@ elementalGameButton.addEventListener('click', function() {
 changeGameButton.addEventListener('click', goHome);
 classicFighters.addEventListener('click', selectFighter);
 elementalFighters.addEventListener('click', selectFighter);
-//window.addEventListener('load', renderRightAside);
-//window.addEventListener('load', renderLeftAside);
+window.addEventListener('load', renderRightAside);
+window.addEventListener('load', renderLeftAside);
 
 
 //EVENT HANDLERS AND FUNCTIONS
@@ -42,16 +42,16 @@ function renderLeftAside() {
   asideLeft.innerHTML = `
   <p>Player: Human</p>
   <img src="./assets/human.png" alt="Human head">
-  <p>Wins: ${humanwins[0]}</p>
+  <p>Wins: ${wins}</p>
   `;
 }
 
 function renderRightAside() {
-  var robotwins = game.playerTwo.retrieveWinsFromStorage();
+  var wins = game.playerTwo.retrieveWinsFromStorage();
   asideRight.innerHTML= `
   <p>Player: Robot</p>
   <img src="./assets/robot.png" alt="Robot head">
-  <p>Wins: ${robotwins[1]}</p>
+  <p>Wins: ${wins}</p>
   `;
 }
 
