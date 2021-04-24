@@ -11,7 +11,8 @@ class Game {
   chooseGameType() {
     if(this.gameType === 'Classic') {
       this.fighters = ['rock', 'paper', 'scissors']
-    } else if (this.gameType === 'Elemental') {
+    }
+    if(this.gameType === 'Elemental') {
       this.fighters = ['water', 'air', 'earth', 'fire']
     }
   };

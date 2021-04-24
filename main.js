@@ -59,8 +59,10 @@ function selectGame() {
   showGamePage();
   if(event.target.closest('button').id === 'classicGameButton') {
     showElement(classicFighters);
+    game.gameType = 'Classic'
     game.chooseGameType();
-  } else if (event.target.closest('button').id === 'elementalGameButton'){
+  }
+  if (event.target.closest('button').id === 'elementalGameButton'){
     showElement(elementalFighters);
     game.gameType = 'Elemental';
     game.chooseGameType();
