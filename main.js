@@ -44,7 +44,7 @@ function renderLeftAside() {
   <img src="./assets/human.png" alt="Human head">
   <p>Wins: ${wins}</p>
   `;
-}
+};
 
 function renderRightAside() {
   var wins = game.playerTwo.retrieveWinsFromStorage();
@@ -53,13 +53,13 @@ function renderRightAside() {
   <img src="./assets/robot.png" alt="Robot head">
   <p>Wins: ${wins}</p>
   `;
-}
+};
 
 function selectGame() {
   showGamePage();
   if(event.target.closest('button').id === 'classicGameButton') {
     showElement(classicFighters);
-    game.gameType = 'Classic'
+    game.gameType = 'Classic';
     game.chooseGameType();
   }
   if (event.target.closest('button').id === 'elementalGameButton'){
@@ -81,12 +81,12 @@ function showGamePage() {
   showElement(chooseFighterView);
   hideElement(homeView);
   showElement(changeGameButton);
-}
+};
 
 function selectFighter() {
   for(var i = 0; i < allInputs.length; i ++) {
     if(allInputs[i].checked) {
-      game.playerOne.fighter = allInputs[i].id
+      game.playerOne.fighter = allInputs[i].id;
       game.checkForWinner();
       allInputs[i].checked = false;
     }
@@ -121,7 +121,6 @@ function render(game) {
       <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
     </div>
     `;
-    setTimeout(game.resetGameBoard, 2000)
   }else {
     winnerContainer.innerHTML = `
     <h2>It's a draw!</h2>
@@ -130,6 +129,6 @@ function render(game) {
       <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
     </div>
     `;
-    setTimeout(game.resetGameBoard, 2000)
   }
+  setTimeout(game.resetGameBoard, 2000);
 };
