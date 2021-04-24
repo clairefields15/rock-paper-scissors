@@ -33,6 +33,8 @@ class Game {
       this.checkElementalMatchups(matchup);
     }
     showWinnerView();
+    this.playerOne.saveWinsToStorage();
+    this.playerTwo.saveWinsToStorage();
     render(this);
     renderLeftAside();
     renderRightAside();

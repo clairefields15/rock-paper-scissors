@@ -9,14 +9,23 @@ class Player {
   }
 
   saveWinsToStorage() {
-    //need JSON
-    localStorage.setItem(game.playerOne)
+    localStorage.setItem('Human', JSON.stringify(game.playerOne.wins));
+    localStorage.setItem('Computer', JSON.stringify(game.playerTwo.wins));
   }
 
-  retrieveWinsFromStorage() {
-    //need JSON
-    localStorage.getItem()
-  }
+  // retrieveWinsFromStorage() {
+  //   var keys = ['Human','Computer'];
+  //   var wins = ;
+  //   for (var i = 0; i < keys.length; i ++) {
+  //     var player = localStorage.getItem(this.name);
+  //     var parsedPlayer = JSON.parse(player);
+  //     wins.push(parsedPlayer);
+  //   }
+  //   if (!wins)) {
+  //     return wins = [0,0];
+  //   }
+  //   return wins
+  // }
 
   takeTurn(game) {
     if (this.name === 'Human') {
