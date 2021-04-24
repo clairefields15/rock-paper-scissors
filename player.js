@@ -9,12 +9,12 @@ class Player {
   }
 
   saveWinsToStorage() {
-    //don't think I'll need to use JSON since the data is v simple
-    localStorage.setItem()
+    //need JSON
+    localStorage.setItem(game.playerOne)
   }
 
   retrieveWinsFromStorage() {
-    //don't think I'll need to use JSON since the data is v simple
+    //need JSON
     localStorage.getItem()
   }
 

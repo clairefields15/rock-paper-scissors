@@ -34,7 +34,8 @@ class Game {
     }
     showWinnerView();
     render(this);
-    renderAsides();
+    renderLeftAside();
+    renderRightAside();
   };
 
 // rock>scissors

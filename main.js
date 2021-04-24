@@ -20,7 +20,9 @@ buttonContainer.addEventListener('click', function() {
 changeGameButton.addEventListener('click', goHome);
 classicFighters.addEventListener('click', selectFighter);
 elementalFighters.addEventListener('click', selectFighter);
-window.addEventListener('load', renderAsides);
+window.addEventListener('load', renderRightAside);
+window.addEventListener('load', renderLeftAside);
+
 
 //EVENT HANDLERS AND FUNCTIONS
 function showElement(element) {
@@ -31,15 +33,18 @@ function hideElement(element) {
   element.classList.add('hidden');
 };
 
-function renderAsides() {
+function renderLeftAside() {
   asideLeft.innerHTML = `
-  <p>Player: ${game.playerOne.name}</p>
-  <img src="./assets/${game.playerOne.token}.png" alt="Human head">
+  <p>Player: Human</p>
+  <img src="./assets/human.png" alt="Human head">
   <p>Wins: ${game.playerOne.wins}</p>
   `;
+}
+
+function renderRightAside() {
   asideRight.innerHTML= `
-  <p>Player: ${game.playerTwo.name}</p>
-  <img src="./assets/${game.playerTwo.token}.png" alt="Robot head">
+  <p>Player: Robot</p>
+  <img src="./assets/robot.png" alt="Robot head">
   <p>Wins: ${game.playerTwo.wins}</p>
   `;
 }
@@ -48,16 +53,13 @@ function selectGame() {
   showGamePage();
   if(event.target.id === 'classicGameButton') {
     showElement(classicFighters);
-    game = new Game('Classic');
     game.chooseGameType();
   } else if (event.target.id === 'elementalGameButton'){
     showElement(elementalFighters);
-    game = new Game('Elemental');
+    game.gameType = 'Elemental';
     game.chooseGameType();
   }
 };
-
-
 
 function startNewGame() {
   if (game.gameType === 'Classic') {
