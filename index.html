@@ -14,9 +14,7 @@
       </nav>
     </header>
     <main>
-      <aside class="left">
-        <p>Player: Human</p>
-        <p>Wins: 0</p>
+      <aside class="left" id="left">
       </aside>
       <section class="view-home" id="homeView">
         <h2>Choose your game</h2>
@@ -35,6 +33,7 @@
             <p>Earth > Fire</p>
             <p>Fire > Air</p>
             <p>Air > Water</p>
+            <p>Air > Earth</p>
             <p>Water + Fire = They are opposites, it's a draw!</p>
             <p>Air + Fire = They are opposites, it's a draw!</p>
           </button>
@@ -59,7 +58,7 @@
           </div>
           <div class="air-container">
             <input type="radio" id="air" name="el-fighter">
-            <label class="fighter" for="air"><img src="./assets/wind.png" alt="Air">Air</label>
+            <label class="fighter" for="air"><img src="./assets/air.png" alt="Air">Air</label>
             <input type="radio" id="fire" name="el-fighter">
             <label class="fighter" for="fire"><img src="./assets/fire.png" alt="Fire">Fire</label>
           </div>
@@ -69,9 +68,7 @@
         <section class="who-won" id="whoWonContainer">
         </section>
       </section>
-      <aside class="right">
-        <p>Player: Computer</p>
-        <p>Wins: 0</p>
+      <aside class="right" id="right">
       </aside>
     </main>
   </body>

@@ -10,7 +10,7 @@
 header {
   background-color: #FF7260;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 4em;
   align-items: center;
   padding-left: 1em;
@@ -29,6 +29,10 @@ button:hover,
 label:hover {
   background-color: #8dd1cf;
   cursor: pointer;
+}
+
+p {
+  line-height: 200%
 }
 
 .game-container {
@@ -61,7 +65,19 @@ label:hover {
   border-radius: 50%;
   height: 8em;
   width: 8em;
-  margin: 1em;
+  margin: 2em 1em;
+}
+
+.matchup-container,
+.winner {
+  display: flex;
+  flex-direction: row;
+  background-color: inherit;
+  align-items: center;
+  justify-content: center;
+  height: 8em;
+  width: 8em;
+  margin: 2em 1em;
 }
 
 input[type="radio"] {
@@ -95,7 +111,8 @@ section {
 }
 
 .view-classic-fighters,
-.view-elemental-fighters {
+.view-elemental-fighters,
+.view-winner {
   display: flex;
   flex-direction: row;
   justify-content: center;
