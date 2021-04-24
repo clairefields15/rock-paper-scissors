@@ -10,7 +10,7 @@
 header {
   background-color: #FF7260;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 4em;
   align-items: center;
   padding-left: 1em;
@@ -29,6 +29,10 @@ button:hover,
 label:hover {
   background-color: #8dd1cf;
   cursor: pointer;
+}
+
+p {
+  line-height: 200%
 }
 
 .game-container {

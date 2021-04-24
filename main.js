@@ -8,7 +8,8 @@ var elementalFighters = document.getElementById('elementalFighters');
 var winnerView = document.getElementById('winnerView');
 var winnerContainer = document.getElementById('whoWonContainer');
 var asideLeft = document.getElementById('left');
-var asideRight = document.getElementById('right')
+var asideRight = document.getElementById('right');
+var allInputs = document.querySelectorAll('input');
 
 var game = new Game('Classic');
 
@@ -17,14 +18,9 @@ buttonContainer.addEventListener('click', function() {
   selectGame(event)
 });
 changeGameButton.addEventListener('click', goHome);
-classicFighters.addEventListener('click', function() {
-  selectFighter(event)
-});
-elementalFighters.addEventListener('click', function() {
-  selectFighter(event)
-});
-
-window.addEventListener('load', renderAsides)
+classicFighters.addEventListener('click', selectFighter);
+elementalFighters.addEventListener('click', selectFighter);
+window.addEventListener('load', renderAsides);
 
 //EVENT HANDLERS AND FUNCTIONS
 function showElement(element) {
@@ -37,14 +33,14 @@ function hideElement(element) {
 
 function renderAsides() {
   asideLeft.innerHTML = `
-    <p>Player: ${game.playerOne.name}</p>
-    <img src="./assets/${game.playerOne.token}.png" alt="Human head">
-    <p>Wins: ${game.playerOne.wins}</p>
+  <p>Player: ${game.playerOne.name}</p>
+  <img src="./assets/${game.playerOne.token}.png" alt="Human head">
+  <p>Wins: ${game.playerOne.wins}</p>
   `;
   asideRight.innerHTML= `
-    <p>Player: ${game.playerTwo.name}</p>
-    <img src="./assets/${game.playerTwo.token}.png" alt="Robot head">
-    <p>Wins: ${game.playerTwo.wins}</p>
+  <p>Player: ${game.playerTwo.name}</p>
+  <img src="./assets/${game.playerTwo.token}.png" alt="Robot head">
+  <p>Wins: ${game.playerTwo.wins}</p>
   `;
 }
 
@@ -61,6 +57,8 @@ function selectGame() {
   }
 };
 
+
+
 function startNewGame() {
   if (game.gameType === 'Classic') {
     showElement(classicFighters);
@@ -76,34 +74,13 @@ function showGamePage() {
 }
 
 function selectFighter() {
- if(event.target.id === 'rock') {
-   game.playerOne.fighter = 'Rock'
-   game.checkForWinner();
- }
- if(event.target.id === 'paper') {
-   game.playerOne.fighter = 'Paper'
-   game.checkForWinner();
- }
- if(event.target.id === 'scissors') {
-   game.playerOne.fighter = 'Scissors'
-   game.checkForWinner();
- }
- if(event.target.id === 'water') {
-   game.playerOne.fighter = 'Water'
-   game.checkForWinner();
- }
- if(event.target.id === 'air') {
-   game.playerOne.fighter = 'Air'
-   game.checkForWinner();
- }
- if(event.target.id === 'fire') {
-   game.playerOne.fighter = 'Fire'
-   game.checkForWinner();
- }
- if(event.target.id === 'earth') {
-   game.playerOne.fighter = 'Earth'
-   game.checkForWinner();
- }
+  for(var i = 0; i < allInputs.length; i ++) {
+    if(allInputs[i].checked) {
+      game.playerOne.fighter = allInputs[i].id
+      game.checkForWinner();
+      allInputs[i].checked = false;
+    }
+  }
 };
 
 function goHome() {

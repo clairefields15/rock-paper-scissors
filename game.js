@@ -12,9 +12,9 @@ class Game {
 
   chooseGameType() {
     if(this.gameType === 'Classic') {
-      this.fighters = ['Rock', 'Paper', 'Scissors']
+      this.fighters = ['rock', 'paper', 'scissors']
     } else if (this.gameType === 'Elemental') {
-      this.fighters = ['Water', 'Air', 'Earth', 'Fire']
+      this.fighters = ['water', 'air', 'earth', 'fire']
     }
   };
 
@@ -37,20 +37,20 @@ class Game {
     renderAsides();
   };
 
-// rock>Scissors
+// rock>scissors
 // refactor this to represent that relationship between the fighters
 // compare that relationship between playerone.fighter and playertwo.fighter
 
   checkClassicMatchups(matchup) {
-    if (matchup.playerOne === 'Rock' && matchup.playerTwo === 'Scissors' ||
-    matchup.playerOne === 'Paper' && matchup.playerTwo === 'Rock' ||
-    matchup.playerOne === 'Scissors' && matchup.playerTwo === 'Paper') {
+    if (matchup.playerOne === 'rock' && matchup.playerTwo === 'scissors' ||
+    matchup.playerOne === 'paper' && matchup.playerTwo === 'rock' ||
+    matchup.playerOne === 'scissors' && matchup.playerTwo === 'paper') {
       this.playerOne.wins++
       this.winner = this.playerOne.name
       return this.winner
-    } else if (matchup.playerOne === 'Scissors' && matchup.playerTwo ==='Rock' ||
-    matchup.playerOne === 'Rock' && matchup.playerTwo === 'Paper' ||
-    matchup.playerOne === 'Paper' && matchup.playerTwo === 'Scissors' ) {
+    } else if (matchup.playerOne === 'scissors' && matchup.playerTwo ==='rock' ||
+    matchup.playerOne === 'rock' && matchup.playerTwo === 'paper' ||
+    matchup.playerOne === 'paper' && matchup.playerTwo === 'scissors' ) {
       this.playerTwo.wins++
       this.winner = this.playerTwo.name
       return this.winner
@@ -61,17 +61,19 @@ class Game {
   };
 
   checkElementalMatchups(matchup) {
-    if (matchup.playerOne === 'Water' && matchup.playerTwo === 'Earth' ||
-    matchup.playerOne === 'Earth' && matchup.playerTwo === 'Fire' ||
-    matchup.playerOne === 'Fire' && matchup.playerTwo === 'Air' ||
-    matchup.playerOne === 'Air' && matchup.playerTwo === 'Water') {
+    if (matchup.playerOne === 'water' && matchup.playerTwo === 'earth' ||
+    matchup.playerOne === 'earth' && matchup.playerTwo === 'fire' ||
+    matchup.playerOne === 'fire' && matchup.playerTwo === 'air' ||
+    matchup.playerOne === 'air' && matchup.playerTwo === 'water' ||
+    matchup.playerOne === 'air' && matchup.playerTwo === 'earth') {
       this.playerOne.wins++
       this.winner = this.playerOne.name
       return this.winner
-    } else if (matchup.playerOne === 'Earth' && matchup.playerTwo === 'Water' ||
-    matchup.playerOne === 'Fire' && matchup.playerTwo === 'Earth' ||
-    matchup.playerOne === 'Air' && matchup.playerTwo === 'Fire' ||
-    matchup.playerOne === 'Water' && matchup.playerTwo === 'Air') {
+    } else if (matchup.playerOne === 'earth' && matchup.playerTwo === 'water' ||
+    matchup.playerOne === 'fire' && matchup.playerTwo === 'earth' ||
+    matchup.playerOne === 'air' && matchup.playerTwo === 'fire' ||
+    matchup.playerOne === 'water' && matchup.playerTwo === 'air' ||
+    matchup.playerOne === 'earth' && matchup.playerTwo === 'air') {
       this.playerTwo.wins++
       this.winner = this.playerTwo.name
       return this.winner
