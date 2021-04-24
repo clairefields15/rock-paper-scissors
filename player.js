@@ -1,5 +1,3 @@
-//var Game = require('./game.js');
-
 class Player {
   constructor(name, token) {
     this.name = name;
@@ -9,14 +7,31 @@ class Player {
   }
 
   saveWinsToStorage() {
-    //don't think I'll need to use JSON since the data is v simple
-    localStorage.setItem()
+    localStorage.setItem(this.name, JSON.stringify(this.wins));
   }
 
   retrieveWinsFromStorage() {
-    //don't think I'll need to use JSON since the data is v simple
-    localStorage.getItem()
+    var wins = localStorage.getItem(this.name);
+    var parsedWins = JSON.parse(wins);
+    if (!wins) {
+      return wins = 0;
+    }
+    return parsedWins
   }
+
+  // retrieveWinsFromStorage() {
+  //   var keys = ['Human','Computer'];
+  //   var wins = ;
+  //   for (var i = 0; i < keys.length; i ++) {
+  //     var player = localStorage.getItem(this.name);
+  //     var parsedPlayer = JSON.parse(player);
+  //     wins.push(parsedPlayer);
+  //   }
+  //   if (!wins)) {
+  //     return wins = [0,0];
+  //   }
+  //   return wins
+  // }
 
   takeTurn(game) {
     if (this.name === 'Human') {
@@ -28,5 +43,3 @@ class Player {
     }
   }
 };
-
-//module.exports = Player;

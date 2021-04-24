@@ -1,5 +1,6 @@
 //DOM ELEMENTS
-var buttonContainer = document.querySelector('.game-container');
+var classicGameButton = document.getElementById('classicGameButton');
+var elementalGameButton = document.getElementById('elementalGameButton');
 var chooseFighterView = document.getElementById('chooseFighterView');
 var homeView = document.getElementById('homeView');
 var changeGameButton = document.getElementById('changeGame');
@@ -14,13 +15,18 @@ var allInputs = document.querySelectorAll('input');
 var game = new Game('Classic');
 
 //EVENT LISTENERS
-buttonContainer.addEventListener('click', function() {
+classicGameButton.addEventListener('click', function() {
+  selectGame(event)
+});
+elementalGameButton.addEventListener('click', function() {
   selectGame(event)
 });
 changeGameButton.addEventListener('click', goHome);
 classicFighters.addEventListener('click', selectFighter);
 elementalFighters.addEventListener('click', selectFighter);
-window.addEventListener('load', renderAsides);
+window.addEventListener('load', renderRightAside);
+window.addEventListener('load', renderLeftAside);
+
 
 //EVENT HANDLERS AND FUNCTIONS
 function showElement(element) {
@@ -31,33 +37,35 @@ function hideElement(element) {
   element.classList.add('hidden');
 };
 
-function renderAsides() {
+function renderLeftAside() {
+  var wins = game.playerOne.retrieveWinsFromStorage();
   asideLeft.innerHTML = `
-  <p>Player: ${game.playerOne.name}</p>
-  <img src="./assets/${game.playerOne.token}.png" alt="Human head">
-  <p>Wins: ${game.playerOne.wins}</p>
+  <p>Player: Human</p>
+  <img src="./assets/human.png" alt="Human head">
+  <p>Wins: ${wins}</p>
   `;
+}
+
+function renderRightAside() {
+  var wins = game.playerTwo.retrieveWinsFromStorage();
   asideRight.innerHTML= `
-  <p>Player: ${game.playerTwo.name}</p>
-  <img src="./assets/${game.playerTwo.token}.png" alt="Robot head">
-  <p>Wins: ${game.playerTwo.wins}</p>
+  <p>Player: Robot</p>
+  <img src="./assets/robot.png" alt="Robot head">
+  <p>Wins: ${wins}</p>
   `;
 }
 
 function selectGame() {
   showGamePage();
-  if(event.target.id === 'classicGameButton') {
+  if(event.target.closest('button').id === 'classicGameButton') {
     showElement(classicFighters);
-    game = new Game('Classic');
     game.chooseGameType();
-  } else if (event.target.id === 'elementalGameButton'){
+  } else if (event.target.closest('button').id === 'elementalGameButton'){
     showElement(elementalFighters);
-    game = new Game('Elemental');
+    game.gameType = 'Elemental';
     game.chooseGameType();
   }
 };
-
-
 
 function startNewGame() {
   if (game.gameType === 'Classic') {
