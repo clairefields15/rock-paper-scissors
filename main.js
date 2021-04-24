@@ -106,18 +106,18 @@ function render(game) {
   if(game.winner) {
     winnerContainer.innerHTML = `
     <h2>${game.winner} won this round!</h2>
-    <div class="matchupContainer">
-      <img src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
-      <img src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
+    <div class="matchup-container">
+      <img class="winner" src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
+      <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
     </div>
     `;
     setTimeout(game.resetGameBoard, 2000)
   }else {
     winnerContainer.innerHTML = `
     <h2>It's a draw!</h2>
-    <div class="matchupContainer">
-      <img src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
-      <img src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
+    <div class="matchup-container">
+      <img class="winner" src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
+      <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
     </div>
     `;
     setTimeout(game.resetGameBoard, 2000)
