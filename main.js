@@ -37,14 +37,14 @@ function hideElement(element) {
 
 function renderAsides() {
   asideLeft.innerHTML = `
-  <p>Player: ${game.playerOne.name}</p>
-  <img src="./assets/${game.playerOne.token}.png" alt="Human head">
-  <p>Wins: 0</p>
+    <p>Player: ${game.playerOne.name}</p>
+    <img src="./assets/${game.playerOne.token}.png" alt="Human head">
+    <p>Wins: ${game.playerOne.wins}</p>
   `;
   asideRight.innerHTML= `
-  <p>Player: ${game.playerTwo.name}</p>
-  <img src="./assets/${game.playerTwo.token}.png" alt="Robot head">
-  <p>Wins: 0</p>
+    <p>Player: ${game.playerTwo.name}</p>
+    <img src="./assets/${game.playerTwo.token}.png" alt="Robot head">
+    <p>Wins: ${game.playerTwo.wins}</p>
   `;
 }
 

@@ -34,6 +34,7 @@ class Game {
     }
     showWinnerView();
     render(this);
+    renderAsides();
   };
 
 // rock>Scissors
@@ -54,6 +55,7 @@ class Game {
       this.winner = this.playerTwo.name
       return this.winner
     } else {
+      this.winner = null;
       return
     }
   };
