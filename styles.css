@@ -65,7 +65,7 @@ p {
   border-radius: 50%;
   height: 8em;
   width: 8em;
-  margin: 1em;
+  margin: 2em 1em;
 }
 
 input[type="radio"] {
