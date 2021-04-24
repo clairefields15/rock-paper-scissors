@@ -7,6 +7,8 @@ var classicFighters = document.getElementById('classicFighters');
 var elementalFighters = document.getElementById('elementalFighters');
 var winnerView = document.getElementById('winnerView');
 var winnerContainer = document.getElementById('whoWonContainer');
+var asideLeft = document.getElementById('left');
+var asideRight = document.getElementById('right')
 
 var game = new Game('Classic');
 
@@ -22,6 +24,8 @@ elementalFighters.addEventListener('click', function() {
   selectFighter(event)
 });
 
+window.addEventListener('load', renderAsides)
+
 //EVENT HANDLERS AND FUNCTIONS
 function showElement(element) {
   element.classList.remove('hidden');
@@ -30,6 +34,19 @@ function showElement(element) {
 function hideElement(element) {
   element.classList.add('hidden');
 };
+
+function renderAsides() {
+  asideLeft.innerHTML = `
+  <p>Player: ${game.playerOne.name}</p>
+  <img src="./assets/${game.playerOne.token}.png" alt="Human head">
+  <p>Wins: 0</p>
+  `;
+  asideRight.innerHTML= `
+  <p>Player: ${game.playerTwo.name}</p>
+  <img src="./assets/${game.playerTwo.token}.png" alt="Robot head">
+  <p>Wins: 0</p>
+  `;
+}
 
 function selectGame() {
   showGamePage();
@@ -103,7 +120,6 @@ function showWinnerView() {
   hideElement(elementalFighters);
   hideElement(classicFighters);
   showElement(winnerView);
-  debugger
   changeGameButton.disabled = true;
 };
 

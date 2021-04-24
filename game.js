@@ -2,8 +2,8 @@
 
 class Game {
   constructor(gameType) {
-    this.playerOne = new Player('Human', '🤩');
-    this.playerTwo = new Player('Computer', '🤖');
+    this.playerOne = new Player('Human', 'human');
+    this.playerTwo = new Player('Computer', 'robot');
     this.gameType = gameType;
     this.fighters = [];
     this.winner = undefined;
@@ -74,6 +74,7 @@ class Game {
       this.winner = this.playerTwo.name
       return this.winner
     } else {
+      this.winner = null;
       return
     }
   };
