@@ -38,7 +38,7 @@ function hideElement(element) {
 };
 
 function renderLeftAside() {
-  var wins = game.playerOne.retrieveWinsFromStorage();
+  var wins = game.humanPlayer.retrieveWinsFromStorage();
   asideLeft.innerHTML = `
   <p>Player: Human</p>
   <img src="./assets/human.png" alt="Human head">
@@ -47,7 +47,7 @@ function renderLeftAside() {
 };
 
 function renderRightAside() {
-  var wins = game.playerTwo.retrieveWinsFromStorage();
+  var wins = game.computerPlayer.retrieveWinsFromStorage();
   asideRight.innerHTML= `
   <p>Player: Robot</p>
   <img src="./assets/robot.png" alt="Robot head">
@@ -90,7 +90,7 @@ function showGamePage() {
 function selectFighter() {
   for(var i = 0; i < allInputs.length; i ++) {
     if(allInputs[i].checked) {
-      game.playerOne.fighter = allInputs[i].id;
+      game.humanPlayer.fighter = allInputs[i].id;
       game.checkForWinner();
       allInputs[i].checked = false;
     }
@@ -115,23 +115,21 @@ function showWinnerView() {
 };
 
 function render(game) {
-  console.log(game.winner)
   changeGameButton.disabled = true;
-  winnerContainer.innerHTML = '';
   if(game.winner) {
     winnerContainer.innerHTML = `
     <h2>${game.winner} won this round!</h2>
     <div class="matchup-container">
-      <img class="winner" src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
-      <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
+      <img class="winner" src="./assets/${game.matchup.humanPlayer}.png" alt="${game.matchup.humanPlayer}">
+      <img class="winner" src="./assets/${game.matchup.computerPlayer}.png" alt="${game.matchup.computerPlayer}">
     </div>
     `;
   }else {
     winnerContainer.innerHTML = `
     <h2>It's a draw!</h2>
     <div class="matchup-container">
-      <img class="winner" src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
-      <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
+      <img class="winner" src="./assets/${game.matchup.humanPlayer}.png" alt="${game.matchup.humanPlayer}">
+      <img class="winner" src="./assets/${game.matchup.computerPlayer}.png" alt="${game.matchup.computerPlayer}">
     </div>
     `;
   }

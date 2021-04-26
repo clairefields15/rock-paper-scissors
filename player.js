@@ -29,8 +29,4 @@ class Player {
       return this.fighter;
     }
   }
-
-  clearFighter() {
-    return this.fighter = undefined
-  }
 };
