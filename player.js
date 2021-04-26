@@ -14,9 +14,10 @@ class Player {
     var wins = localStorage.getItem(this.name);
     var parsedWins = JSON.parse(wins);
     if (!wins) {
-      return wins = 0;
+      return this.wins = 0;
     }
-    return parsedWins;
+    this.wins = parsedWins;
+    return this.wins;
   }
 
   takeTurn(game) {
@@ -27,5 +28,9 @@ class Player {
       this.fighter = fighters[Math.floor(Math.random()*fighters.length)];
       return this.fighter;
     }
+  }
+
+  clearFighter() {
+    return this.fighter = undefined
   }
 };

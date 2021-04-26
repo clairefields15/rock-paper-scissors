@@ -39,6 +39,7 @@ function hideElement(element) {
 
 function renderLeftAside() {
   var wins = game.playerOne.retrieveWinsFromStorage();
+  console.log('render left' + wins)
   asideLeft.innerHTML = `
   <p>Player: Human</p>
   <img src="./assets/human.png" alt="Human head">
@@ -48,6 +49,7 @@ function renderLeftAside() {
 
 function renderRightAside() {
   var wins = game.playerTwo.retrieveWinsFromStorage();
+  console.log('render right' + wins)
   asideRight.innerHTML= `
   <p>Player: Robot</p>
   <img src="./assets/robot.png" alt="Robot head">
@@ -70,9 +72,13 @@ function selectGame() {
 };
 
 function startNewGame() {
+  changeGameButton.disabled = false;
+  showGamePage();
+  hideElement(winnerView);
   if (game.gameType === 'Classic') {
     showElement(classicFighters);
-  } else {
+  }
+  if (game.gameType === 'Elemental') {
     showElement(elementalFighters);
   }
 };
@@ -130,5 +136,5 @@ function render(game) {
     </div>
     `;
   }
-  setTimeout(game.resetGameBoard, 2000);
+  setTimeout(startNewGame, 2000);
 };

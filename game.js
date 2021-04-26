@@ -81,11 +81,4 @@ class Game {
       return;
     }
   };
-
-  resetGameBoard() {
-    showGamePage();
-    hideElement(winnerView);
-    startNewGame();
-    changeGameButton.disabled = false;
-  }
 };
