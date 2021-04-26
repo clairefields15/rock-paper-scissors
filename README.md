@@ -17,12 +17,15 @@ Rock, Paper, Scissors is an application that allows users to play a classic game
 
 ## Features
 When a user first visits Rock, Paper Scissors they are given the choice of two games- Classic or Elemental. The rules of the two games are described within the buttons. Two sidebars show the two players (Human and Computer) and their current number of wins.
-![Image of the landing page for Rock, Paper, Scissors](https://imgur.com/XcrSDN3)
+
+![Image of the landing page for Rock, Paper, Scissors](https://imgur.com/XcrSDN3.jpg)
 
 Once a user makes a game selection, the center section of the screen displays their "fighter" choices. Once they select a fighter, the computer player selects a random fighter, and the user sees a new screen displaying the winner (or draw) and the matchup. The win count of the players increments and the game automatically resets for another round.
+
 ![Gif showing classic mode gameplay](https://media.giphy.com/media/COaUZMhM3v7yzI4y1U/giphy.gif)
 
 On the choose your fighter screen, a button labeled "Change Game?" appears in the header, which takes the user back to the choose your game screen. As a preventative measure, the button is disabled during the 2 second timeout between rounds. You will notice that the number of wins does not reset when you toggle between the two games. In fact, wins do not reset when you refresh the page either as that information is stored in localStorage.
+
 ![Gif showing a user changing from classic to elemental game](https://media.giphy.com/media/D2aEPm59ZY7bm1oiWX/giphy.gif)
 
 ### Future Additions
