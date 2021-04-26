@@ -39,7 +39,6 @@ function hideElement(element) {
 
 function renderLeftAside() {
   var wins = game.playerOne.retrieveWinsFromStorage();
-  console.log('render left' + wins)
   asideLeft.innerHTML = `
   <p>Player: Human</p>
   <img src="./assets/human.png" alt="Human head">
@@ -49,7 +48,6 @@ function renderLeftAside() {
 
 function renderRightAside() {
   var wins = game.playerTwo.retrieveWinsFromStorage();
-  console.log('render right' + wins)
   asideRight.innerHTML= `
   <p>Player: Robot</p>
   <img src="./assets/robot.png" alt="Robot head">
@@ -117,6 +115,7 @@ function showWinnerView() {
 };
 
 function render(game) {
+  console.log(game.winner)
   changeGameButton.disabled = true;
   winnerContainer.innerHTML = '';
   if(game.winner) {
@@ -136,5 +135,6 @@ function render(game) {
     </div>
     `;
   }
-  setTimeout(startNewGame, 2000);
+  setTimeout(function() {
+    game.resetGameBoard()}, 2000);
 };

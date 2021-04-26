@@ -81,4 +81,12 @@ class Game {
       return;
     }
   };
+
+  resetGameBoard() {
+    this.playerOne.fighter = undefined;
+    this.playerTwo.fighter = undefined;
+    this.matchup = {playerOne: null, playerTwo: null};
+    this.winner = undefined;
+    startNewGame();
+  }
 };
