@@ -38,28 +38,28 @@ function hideElement(element) {
 };
 
 function renderLeftAside() {
-  var wins = game.playerOne.retrieveWinsFromStorage();
+  var wins = game.humanPlayer.retrieveWinsFromStorage();
   asideLeft.innerHTML = `
   <p>Player: Human</p>
   <img src="./assets/human.png" alt="Human head">
   <p>Wins: ${wins}</p>
   `;
-}
+};
 
 function renderRightAside() {
-  var wins = game.playerTwo.retrieveWinsFromStorage();
+  var wins = game.computerPlayer.retrieveWinsFromStorage();
   asideRight.innerHTML= `
   <p>Player: Robot</p>
   <img src="./assets/robot.png" alt="Robot head">
   <p>Wins: ${wins}</p>
   `;
-}
+};
 
 function selectGame() {
   showGamePage();
   if(event.target.closest('button').id === 'classicGameButton') {
     showElement(classicFighters);
-    game.gameType = 'Classic'
+    game.gameType = 'Classic';
     game.chooseGameType();
   }
   if (event.target.closest('button').id === 'elementalGameButton'){
@@ -70,9 +70,13 @@ function selectGame() {
 };
 
 function startNewGame() {
+  changeGameButton.disabled = false;
+  showGamePage();
+  hideElement(winnerView);
   if (game.gameType === 'Classic') {
     showElement(classicFighters);
-  } else {
+  }
+  if (game.gameType === 'Elemental') {
     showElement(elementalFighters);
   }
 };
@@ -81,12 +85,12 @@ function showGamePage() {
   showElement(chooseFighterView);
   hideElement(homeView);
   showElement(changeGameButton);
-}
+};
 
 function selectFighter() {
   for(var i = 0; i < allInputs.length; i ++) {
     if(allInputs[i].checked) {
-      game.playerOne.fighter = allInputs[i].id
+      game.humanPlayer.fighter = allInputs[i].id;
       game.checkForWinner();
       allInputs[i].checked = false;
     }
@@ -112,24 +116,23 @@ function showWinnerView() {
 
 function render(game) {
   changeGameButton.disabled = true;
-  winnerContainer.innerHTML = '';
   if(game.winner) {
     winnerContainer.innerHTML = `
     <h2>${game.winner} won this round!</h2>
     <div class="matchup-container">
-      <img class="winner" src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
-      <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
+      <img class="winner" src="./assets/${game.matchup.humanPlayer}.png" alt="${game.matchup.humanPlayer}">
+      <img class="winner" src="./assets/${game.matchup.computerPlayer}.png" alt="${game.matchup.computerPlayer}">
     </div>
     `;
-    setTimeout(game.resetGameBoard, 2000)
   }else {
     winnerContainer.innerHTML = `
     <h2>It's a draw!</h2>
     <div class="matchup-container">
-      <img class="winner" src="./assets/${game.matchup.playerOne}.png" alt="${game.matchup.playerOne}">
-      <img class="winner" src="./assets/${game.matchup.playerTwo}.png" alt="${game.matchup.playerTwo}">
+      <img class="winner" src="./assets/${game.matchup.humanPlayer}.png" alt="${game.matchup.humanPlayer}">
+      <img class="winner" src="./assets/${game.matchup.computerPlayer}.png" alt="${game.matchup.computerPlayer}">
     </div>
     `;
-    setTimeout(game.resetGameBoard, 2000)
   }
+  setTimeout(function() {
+    game.resetGameBoard()}, 2000);
 };
