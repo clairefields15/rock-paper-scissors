@@ -57,13 +57,14 @@ function renderRightAside() {
 
 function selectGame() {
   showGamePage();
-  if(event.target.closest('button').id === 'classicGameButton') {
-    showElement(classicFighters);
+  var buttonId = event.target.closest('button').id
+  if(buttonId === 'classicGameButton') {
     game.gameType = 'Classic';
+    showElement(classicFighters);
   }
-  if (event.target.closest('button').id === 'elementalGameButton'){
-    showElement(elementalFighters);
+  if (buttonId === 'elementalGameButton'){
     game.gameType = 'Elemental';
+    showElement(elementalFighters);
   }
   game.chooseGameType();
 };
