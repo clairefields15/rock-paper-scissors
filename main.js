@@ -1,16 +1,16 @@
 //DOM ELEMENTS
-var classicGameButton = document.getElementById('classicGameButton');
-var elementalGameButton = document.getElementById('elementalGameButton');
-var chooseFighterView = document.getElementById('chooseFighterView');
-var homeView = document.getElementById('homeView');
-var changeGameButton = document.getElementById('changeGame');
-var classicFighters = document.getElementById('classicFighters');
-var elementalFighters = document.getElementById('elementalFighters');
-var winnerView = document.getElementById('winnerView');
-var winnerContainer = document.getElementById('whoWonContainer');
+var allInputs = document.querySelectorAll('input');
 var asideLeft = document.getElementById('left');
 var asideRight = document.getElementById('right');
-var allInputs = document.querySelectorAll('input');
+var changeGameButton = document.getElementById('changeGame');
+var chooseFighterView = document.getElementById('chooseFighterView');
+var classicFighters = document.getElementById('classicFighters');
+var classicGameButton = document.getElementById('classicGameButton');
+var elementalFighters = document.getElementById('elementalFighters');
+var elementalGameButton = document.getElementById('elementalGameButton');
+var homeView = document.getElementById('homeView');
+var winnerContainer = document.getElementById('whoWonContainer');
+var winnerView = document.getElementById('winnerView');
 
 var game = new Game('Classic');
 
@@ -69,18 +69,6 @@ function selectGame() {
   }
 };
 
-function startNewGame() {
-  changeGameButton.disabled = false;
-  showGamePage();
-  hideElement(winnerView);
-  if (game.gameType === 'Classic') {
-    showElement(classicFighters);
-  }
-  if (game.gameType === 'Elemental') {
-    showElement(elementalFighters);
-  }
-};
-
 function showGamePage() {
   showElement(chooseFighterView);
   hideElement(homeView);
@@ -94,6 +82,18 @@ function selectFighter() {
       game.checkForWinner();
       allInputs[i].checked = false;
     }
+  }
+};
+
+function startNewGame() {
+  changeGameButton.disabled = false;
+  showGamePage();
+  hideElement(winnerView);
+  if (game.gameType === 'Classic') {
+    showElement(classicFighters);
+  }
+  if (game.gameType === 'Elemental') {
+    showElement(elementalFighters);
   }
 };
 
