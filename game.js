@@ -18,63 +18,51 @@ class Game {
   };
 
   chooseFighters() {
-    var humanPlayerFighter = this.humanPlayer.takeTurn(this);
-    var computerPlayerFighter = this.computerPlayer.takeTurn(this);
-    this.matchup = {humanPlayer: humanPlayerFighter, computerPlayer: computerPlayerFighter};
-    return this.matchup;
+    var humanFighter = this.humanPlayer.takeTurn(this);
+    var computerFighter = this.computerPlayer.takeTurn(this);
+    this.matchup = {humanPlayer: humanFighter, computerPlayer: computerFighter};
   };
 
-  checkForWinner() {
-    var matchup = this.chooseFighters();
-    this.checkMatchups(matchup);
-    showWinnerView();
+  playGame() {
+    this.chooseFighters();
+    this.checkForWinner();
     this.humanPlayer.saveWinsToStorage();
     this.computerPlayer.saveWinsToStorage();
     render(this);
-    renderLeftAside();
-    renderRightAside();
   };
 
-  checkMatchups(matchup) {
-    if (this.humanWinner(matchup)) {
+  checkForWinner() {
+    if (this.checkHumanWin()) {
       this.humanPlayer.wins++;
       this.winner = this.humanPlayer.name;
-      return this.winner;
-    } else if (this.computerWinner(matchup)) {
+    } else if (this.checkForDraw()) {
+      this.winner = null;
+    } else if (!this.checkHumanWin()) {
       this.computerPlayer.wins++;
       this.winner = this.computerPlayer.name;
-      return this.winner;
+    }
+  };
+
+  checkHumanWin() {
+    var humanChoice = this.matchup.humanPlayer;
+    var computerChoice = this.matchup.computerPlayer;
+    if (humanChoice === 'rock' && computerChoice === 'scissors' ||
+    humanChoice === 'paper' && computerChoice === 'rock' ||
+    humanChoice === 'scissors' && computerChoice === 'paper' ||
+    humanChoice === 'water' && computerChoice === 'earth' ||
+    humanChoice === 'earth' && computerChoice === 'fire' ||
+    humanChoice ===  'fire' && computerChoice === 'air' ||
+    humanChoice === 'air' && computerChoice === 'water' ||
+    humanChoice === 'air' && computerChoice === 'earth') {
+      return true;
     } else {
-      this.winner = null;
-      return;
+      return false;
     }
   };
 
-  humanWinner(matchup) {
-    if (matchup.humanPlayer === 'rock' && matchup.computerPlayer === 'scissors' ||
-    matchup.humanPlayer === 'paper' && matchup.computerPlayer === 'rock' ||
-    matchup.humanPlayer === 'scissors' && matchup.computerPlayer === 'paper') {
+  checkForDraw() {
+    if (this.matchup.humanPlayer === this.matchup.computerPlayer) {
       return true;
-    } else if (matchup.humanPlayer === 'water' && matchup.computerPlayer === 'earth' ||
-    matchup.humanPlayer === 'earth' && matchup.computerPlayer === 'fire' ||
-    matchup.humanPlayer === 'fire' && matchup.computerPlayer === 'air' ||
-    matchup.humanPlayer === 'air' && matchup.computerPlayer === 'water' ||
-    matchup.humanPlayer === 'air' && matchup.computerPlayer === 'earth') {
-      return true;
-    }
-  };
-
-  computerWinner(matchup) {
-    if (matchup.humanPlayer === 'scissors' && matchup.computerPlayer ==='rock' ||
-    matchup.humanPlayer === 'rock' && matchup.computerPlayer === 'paper' ||
-    matchup.humanPlayer === 'paper' && matchup.computerPlayer === 'scissors' ) {
-      return true;
-    } else if (matchup.humanPlayer === 'earth' && matchup.computerPlayer === 'water' ||
-    matchup.humanPlayer === 'fire' && matchup.computerPlayer === 'earth' ||
-    matchup.humanPlayer === 'air' && matchup.computerPlayer === 'fire' ||
-    matchup.humanPlayer === 'water' && matchup.computerPlayer === 'air' ||
-    matchup.humanPlayer === 'earth' && matchup.computerPlayer === 'air') {
-      return true
     }
   };
 

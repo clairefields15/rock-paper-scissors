@@ -57,16 +57,16 @@ function renderRightAside() {
 
 function selectGame() {
   showGamePage();
-  if(event.target.closest('button').id === 'classicGameButton') {
-    showElement(classicFighters);
+  var buttonId = event.target.closest('button').id
+  if(buttonId === 'classicGameButton') {
     game.gameType = 'Classic';
-    game.chooseGameType();
+    showElement(classicFighters);
   }
-  if (event.target.closest('button').id === 'elementalGameButton'){
-    showElement(elementalFighters);
+  if (buttonId === 'elementalGameButton'){
     game.gameType = 'Elemental';
-    game.chooseGameType();
+    showElement(elementalFighters);
   }
+  game.chooseGameType();
 };
 
 function showGamePage() {
@@ -79,7 +79,7 @@ function selectFighter() {
   for(var i = 0; i < allInputs.length; i ++) {
     if(allInputs[i].checked) {
       game.humanPlayer.fighter = allInputs[i].id;
-      game.checkForWinner();
+      game.playGame();
       allInputs[i].checked = false;
     }
   }
@@ -115,6 +115,7 @@ function showWinnerView() {
 };
 
 function render(game) {
+  showWinnerView();
   changeGameButton.disabled = true;
   if(game.winner) {
     winnerContainer.innerHTML = `
@@ -133,6 +134,8 @@ function render(game) {
     </div>
     `;
   }
+  renderLeftAside();
+  renderRightAside();
   setTimeout(function() {
     game.resetGameBoard()}, 2000);
 };
