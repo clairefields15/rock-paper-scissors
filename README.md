@@ -1,18 +1,9 @@
 # Rock Paper Scissors
 
-## Table of Contents
-* [Introduction](#introduction)
-* [Links](#Links)
-* [Features](#Features )
-* [Future Additions](#Future-Additions)
-* [Contributors](#contributors)
-* [Languages](#Languages)
-
 ## Introduction
 Rock, Paper, Scissors is an application that allows users to play a classic game of rock, paper, scissors, or a more difficult "Elemental" game (featuring four choices) against a computer! This is the final solo project for module 1 of the front end engineering program at the Turing School of Software and Design. The basic layout and functionality of the site was provided in the project spec but students were given creative freedom in the design.
 
 ## Links  
-- Read to play? [click here!](www.example.com)
 - View the project specifications [here](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html)
 
 ## Features
@@ -20,7 +11,7 @@ When a user first visits Rock, Paper Scissors they are given the choice of two g
 
 ![Image of the landing page for Rock, Paper, Scissors](https://imgur.com/XcrSDN3.jpg)
 
-Once a user makes a game selection, the center section of the screen displays their "fighter" choices. Once they select a fighter, the computer player selects a random fighter, and the user sees a new screen displaying the winner (or draw) and the matchup. The win count of the players increments and the game automatically resets for another round.
+Once a user makes a game selection, the middle section of the screen displays their "fighter" choices. Once they select a fighter, the computer player selects a random fighter, and the user sees a new screen displaying the winner (or draw) and the matchup. The win count of the players increments and the game automatically resets for another round.
 
 ![Gif showing classic mode gameplay](https://media.giphy.com/media/COaUZMhM3v7yzI4y1U/giphy.gif)
 
@@ -36,7 +27,7 @@ Some features that might be added in the future include:
 
 
 ## Contributors
-This was a solo project by Mod 1 Front End Engineerings student, Claire Fields.
+This was a solo project by Mod 1 Front End Engineering student, Claire Fields.
 - Project Manager: [Kayla Wood](https://github.com/kaylaewood)
 
 
