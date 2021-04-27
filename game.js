@@ -35,13 +35,11 @@ class Game {
     if (this.checkHumanWin()) {
       this.humanPlayer.wins++;
       this.winner = this.humanPlayer.name;
-      return this.winner;
     } else if (this.checkForDraw()) {
-      this.winner = null
+      this.winner = null;
     } else if (!this.checkHumanWin()) {
       this.computerPlayer.wins++;
       this.winner = this.computerPlayer.name;
-      return this.winner;
     }
   };
 
@@ -58,13 +56,13 @@ class Game {
     humanChoice === 'air' && computerChoice === 'earth') {
       return true;
     } else {
-      return false
+      return false;
     }
   };
 
   checkForDraw() {
     if (this.matchup.humanPlayer === this.matchup.computerPlayer) {
-      return true
+      return true;
     }
   };
 

@@ -60,13 +60,12 @@ function selectGame() {
   if(event.target.closest('button').id === 'classicGameButton') {
     showElement(classicFighters);
     game.gameType = 'Classic';
-    game.chooseGameType();
   }
   if (event.target.closest('button').id === 'elementalGameButton'){
     showElement(elementalFighters);
     game.gameType = 'Elemental';
-    game.chooseGameType();
   }
+  game.chooseGameType();
 };
 
 function showGamePage() {
