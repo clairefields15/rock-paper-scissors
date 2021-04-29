@@ -4,6 +4,7 @@
 Rock, Paper, Scissors is an application that allows users to play a classic game of rock, paper, scissors, or a more difficult "Elemental" game (featuring four choices) against a computer! This is the final solo project for module 1 of the front end engineering program at the Turing School of Software and Design. The basic layout and functionality of the site was provided in the project spec but students were given creative freedom in the design.
 
 ## Links  
+- Ready to play? Click [here](https://clairefields15.github.io/rock-paper-scissors/)
 - View the project specifications [here](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html)
 
 ## Features
