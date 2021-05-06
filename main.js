@@ -29,13 +29,14 @@ window.addEventListener('load', renderLeftAside);
 
 
 //EVENT HANDLERS AND FUNCTIONS
-function showElement(element) {
-  element.classList.remove('hidden');
-};
 
-function hideElement(element) {
-  element.classList.add('hidden');
-};
+const showElement = element => {
+  element.classList.remove('hidden')
+}
+
+const hideElement = element => {
+  element.classList.add('hidden')
+}
 
 function renderLeftAside() {
   var wins = game.humanPlayer.retrieveWinsFromStorage();
@@ -44,7 +45,7 @@ function renderLeftAside() {
   <img src="./assets/human.png" alt="Human head">
   <p>Wins: ${wins}</p>
   `;
-};
+}
 
 function renderRightAside() {
   var wins = game.computerPlayer.retrieveWinsFromStorage();
@@ -69,20 +70,21 @@ function selectGame() {
   game.chooseGameType();
 };
 
-function showGamePage() {
+
+const showGamePage = () => {
   showElement(chooseFighterView);
   hideElement(homeView);
   showElement(changeGameButton);
 };
 
 function selectFighter() {
-  for(var i = 0; i < allInputs.length; i ++) {
-    if(allInputs[i].checked) {
-      game.humanPlayer.fighter = allInputs[i].id;
-      game.playGame();
-      allInputs[i].checked = false;
+  allInputs.forEach(element => {
+    if (element.checked) {
+      game.humanPlayer.fighter = element.id;
+      game.chooseFighters();
+      element.checked = false;
     }
-  }
+  })
 };
 
 function startNewGame() {
@@ -121,16 +123,16 @@ function render(game) {
     winnerContainer.innerHTML = `
     <h2>${game.winner} won this round!</h2>
     <div class="matchup-container">
-      <img class="winner" src="./assets/${game.matchup.humanPlayer}.png" alt="${game.matchup.humanPlayer}">
-      <img class="winner" src="./assets/${game.matchup.computerPlayer}.png" alt="${game.matchup.computerPlayer}">
+      <img class="winner" src="./assets/${game.humanPlayer.fighter}.png" alt="${game.humanPlayer.fighter}">
+      <img class="winner" src="./assets/${game.computerPlayer.fighter}.png" alt="${game.computerPlayer.fighter}">
     </div>
     `;
   }else {
     winnerContainer.innerHTML = `
     <h2>It's a draw!</h2>
     <div class="matchup-container">
-      <img class="winner" src="./assets/${game.matchup.humanPlayer}.png" alt="${game.matchup.humanPlayer}">
-      <img class="winner" src="./assets/${game.matchup.computerPlayer}.png" alt="${game.matchup.computerPlayer}">
+      <img class="winner" src="./assets/${game.humanPlayer.fighter}.png" alt="${game.humanPlayer.fighter}">
+      <img class="winner" src="./assets/${game.computerPlayer.fighter}.png" alt="${game.computerPlayer.fighter}">
     </div>
     `;
   }
