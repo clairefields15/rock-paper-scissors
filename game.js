@@ -5,7 +5,15 @@ class Game {
     this.gameType = gameType;
     this.fighters = [];
     this.winner = undefined;
-    this.matchup = {humanPlayer: null, computerPlayer: null};
+    this.winConditions = {
+      scissors: 'paper',
+      paper: 'rock',
+      rock: 'scissors',
+      water: 'earth',
+      earth: 'fire',
+      fire: 'air',
+      air: ['water', 'earth']
+    }
   };
 
   chooseGameType() {
@@ -20,50 +28,22 @@ class Game {
   chooseFighters() {
     var humanFighter = this.humanPlayer.takeTurn(this);
     var computerFighter = this.computerPlayer.takeTurn(this);
-    this.matchup = {humanPlayer: humanFighter, computerPlayer: computerFighter};
+    this.checkForWinner(humanFighter, computerFighter);
   };
 
-  playGame() {
-    this.chooseFighters();
-    this.checkForWinner();
+  checkForWinner(human, computer) {
+    if (this.winConditions[human].includes(computer)) {
+      this.winner = this.humanPlayer.name;
+      this.humanPlayer.wins++;
+    } else if (this.winConditions[computer].includes(human)) {
+      this.winner = this.computerPlayer.name;
+      this.computerPlayer.wins++
+    } else {
+      this.winner = null;
+    }
     this.humanPlayer.saveWinsToStorage();
     this.computerPlayer.saveWinsToStorage();
     render(this);
-  };
-
-  checkForWinner() {
-    if (this.checkHumanWin()) {
-      this.humanPlayer.wins++;
-      this.winner = this.humanPlayer.name;
-    } else if (this.checkForDraw()) {
-      this.winner = null;
-    } else if (!this.checkHumanWin()) {
-      this.computerPlayer.wins++;
-      this.winner = this.computerPlayer.name;
-    }
-  };
-
-  checkHumanWin() {
-    var humanChoice = this.matchup.humanPlayer;
-    var computerChoice = this.matchup.computerPlayer;
-    if (humanChoice === 'rock' && computerChoice === 'scissors' ||
-    humanChoice === 'paper' && computerChoice === 'rock' ||
-    humanChoice === 'scissors' && computerChoice === 'paper' ||
-    humanChoice === 'water' && computerChoice === 'earth' ||
-    humanChoice === 'earth' && computerChoice === 'fire' ||
-    humanChoice ===  'fire' && computerChoice === 'air' ||
-    humanChoice === 'air' && computerChoice === 'water' ||
-    humanChoice === 'air' && computerChoice === 'earth') {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  checkForDraw() {
-    if (this.matchup.humanPlayer === this.matchup.computerPlayer) {
-      return true;
-    }
   };
 
   resetGameBoard() {
